@@ -18,8 +18,7 @@ function timeConversion(s) {
     }).join(":")
 
 
+
 }
 
 console.log(timeConversion("12:05:00AM"))
-console.log(Date.now("2:05:00"), Date.now(), new Date("12:05:00PM"))
-console.log( (new Date(Date.now("2:05:00"))))
