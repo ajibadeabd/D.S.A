@@ -1,15 +1,8 @@
-
-
-
-const ss = [1,2,2,3,44]
-
-let answer = []
-for(let i=0; i<ss.length;i++){
-    if(ss[i]!=(i+1)){
-        console.log(ss[i],i+1)
-answer.push(ss[i],i+1)
-    }
-
+function rotLeft(a, d) {
+    if(a.length===d) return a.reverse()
+    const ff = a.filter((num,i)=> i>=d).push(...a.filter((num,i)=> i<d))
+return ff
 }
-
-console.log(answer)
+console.log(rotLeft([1,2,3,4],4))
+console.log([1,2,3].pop(22))
+console.log([1,2,3].slice(0,-2))
