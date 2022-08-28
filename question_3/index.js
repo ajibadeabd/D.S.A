@@ -26,6 +26,25 @@ function staircase2(n) {
         hash+="#"
     }
 }
+
+// javascript
+function staircase3(n) {
+    // Write your code here
+    let sp = { 
+        "-1":"",
+        "0":" ",
+    }
+    for(let i=1; i<=n; i++){
+        sp[i]= sp[i-1] + " "
+    }
+    let hash = "#"
+    for(let i=0; i<n; i++){
+        console.log(sp[n-i-2]+hash)
+        hash+="#"
+    }
+
+    
+}
 staircase2(6) // O(2n) --> O(n)
 
  
