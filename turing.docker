@@ -1,0 +1,8 @@
+convert a container into an image   --docker commit
+
+
+docker swarm to deploy system  ---  docker service create --mode global
+
+remove form automatically  -- docker run  -rm  -v
+
+ssh into a running docker -- docker exec [option] [container] [command]
