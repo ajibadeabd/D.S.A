@@ -1,3 +1,4 @@
 linkedList/
 t.js
-turing.docker/
+turing.docker
+.gitignore
