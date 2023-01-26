@@ -74,3 +74,6 @@ function minimumBribes(q) {
   }
 
   minimumBribes(q)
+
+
+  ['xyz: blue', 'xyz: brown', 'abc: yellow','def: green']

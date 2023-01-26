@@ -346,3 +346,18 @@ let a = [1,2,3,4,5];
 [a[4],a[0],a[1],a[3]] = [a[0],a[4],a[3],a[1]]
 
        console.log(a)
+
+
+
+
+
+
+function test(){
+    return a=>null
+}
+
+
+const aa = new Uint8Array([5, 10, 15, 20, 25, 30, 35 ]);
+const aaa =  [5, 10, 15, 20, 25, 30, 35 ]
+
+console.log(aa[0]) 
