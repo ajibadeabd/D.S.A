@@ -42,43 +42,96 @@ class LinkedList {
             this.head=newNode
         }
         this.length++
+        return this
     }
     shift(){
-        if(!this.head)return 
+        if(!this.head) return undefined
+        let temp = this.head
         this.head=this.head.next
         if(this.length===1) this.tail=null
         this.length--
+        temp.next=null
+        return temp
     }
     get(index){
-        if(!this.head ||  index>(this.length-1) || index<0 || !index) return  undefined
+        if(!this.head ||  index>=this.length || index<0) return  undefined
         let temp = this.head;
         let i = 0
+        if(index==this.length-1) return this.tail
+        if(index==0) return this.head
         while(i<index){
             temp=temp.next
             i++
         }
-        console.log(temp)
         return temp
     }
+    set(index,value){
+       let get =this.get(index)
+       if(!get) return false
+       get.value = value
+       return true
+    }
     insert(index,value){
-        let node = this.get(index)
-        if(!node) return 
+        if(index==0) return this.unshift(index)
+        if(index==this.length) return this.push(index)
+        if(index<0 || index>this.length) return false
+        let node = this.get(index-1)
+        if(!node) return false
+        const newNode = new Node(value)
+        newNode.next = node.next
+        node.next = newNode
+        this.length++
+        return false
+    }
+    remove(index){
+        if(index<0 || index>=this.length) return undefined
+        if(index==0) return this.shift(index)
+        if(index==this.length-1) return this.pop(index)
+        let getPrevNode = this.get(index-1)
+        let temp = getPrevNode.next
+        getPrevNode.next = temp.next
+        temp.next=null
+        this.length--
+        return temp
+    }
+    reverse(){
+        let temp = this.head
+        this.head = this.tail
+        this.tail = temp
+        // temp.next
+        let prev = null
+        let next= temp.next
+        // temp.next=null
+        for(let i=0;i<this.length-1;i++){
+        temp = temp.next
+        console.log(temp)
+        // this.head.next=temp
+        // next= temp.next  
 
 
+            // temp.next=pre
+            // pre.next =temp.next 
+
+        }
+        // console.log(temp)
+        
     }
 
 }
 const list  = new LinkedList(1);
 list.push(2)
 list.push(3)
+list.push(4)
 // list.unshift(11)
-// list.get()
+list.get(0) 
 
-// list.shift()
-list.pop()
-list.pop()
-list.pop()
-list.pop()
+// list.set(2,333)
+// list.insert(1,333)
+console.log(list.remove(1),"rfrknfrkj")
+list.reverse()
+// list.pop()
+// list.pop()
+// list.pop()
 
 // list.push(3)
 // // list.push(4)
@@ -94,8 +147,6 @@ list.pop()
 // // list.pop()
 // list.remove(1)
 // // // list.insert(3,33)
-// // console.log( list)
-
-// // list.reverse()
 console.log( list)
-// // console.log(list)
+
+// // list.reverse() 

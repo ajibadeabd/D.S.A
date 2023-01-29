@@ -1,25 +1,18 @@
-function minimumSwaps1(arr) {
-    let swaps = 0;
-
-    let address = arr.reduce((prev,curr,i)=>{ 
-        prev[curr] = i
-        return prev
+function minimumSwaps(numbers) {
+    let numberIndex = numbers.reduce((initial,current,i)=>{
+      initial[current] =i
+      return initial
     },{})
-    for (let i = 0; i < arr.length-1 && arr[i]!==i; i++) {
-if(i+1!=arr[i]){
-    let numberToBeSwapped = arr[i] // number to be swapped
-    let indexOfExpValue = address[i+1] // index of expected value
-    arr[i] = arr[indexOfExpValue]
-    arr[indexOfExpValue] = numberToBeSwapped
-    address[arr[i]]=i  
-    address[numberToBeSwapped]=indexOfExpValue
-    swaps++
-}
+    return  numbers.reduce((swap,element,i) => {
+      if(element!=i+1){
+        let elementIndex = numberIndex[element]
+        let otherElem = numberIndex[i+1]
+        numbers[i]=numbers[otherElem] // swap the element with intended element 
+        numbers[otherElem] = element
+        numberIndex[i+1] = elementIndex // update index after swapping
+        numberIndex[element] = otherElem // update index after swapping
+        swap++
+      }
+      return swap
+    },0);
     }
-    return swaps
-}
-
-console.log(minimumSwaps1([7, 1, 3, 2, 4, 5, 6]))
-console.log(minimumSwaps1([2,3,1,5,4,6]))
-
-  
