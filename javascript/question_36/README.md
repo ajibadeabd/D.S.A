@@ -1,61 +1,58 @@
-https://www.hackerrank.com/challenges/string-construction/problem?isFullScreen=true&utm_campaign=challenge-recommendation&utm_medium=email&utm_source=24-hour-campaign&h_r=next-challenge&h_v=zen
+https://www.hackerrank.com/challenges/crush/problem?isFullScreen=true&h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
 
 
-Amanda has a string of lowercase letters that she wants to copy to a new string. She can perform the following operations with the given costs. She can perform them any number of times to construct a new string :
 
-Append a character to the end of string  at a cost of  dollar.
-Choose any substring of  and append it to the end of  at no charge.
-Given  strings , find and print the minimum cost of copying each  to  on a new line.
+Starting with a 1-indexed array of zeros and a list of operations, for each operation add a value to each the array element between two given indices, inclusive. Once all operations have been performed, return the maximum value in the array.
 
-For example, given a string , it can be copied for  dollars. Start by copying ,  and  individually at a cost of  dollar per character. String  at this time. Copy  to the end of  at no cost to complete the copy.
+Example
+
+
+Queries are interpreted as follows:
+
+    a b k
+    1 5 3
+    4 8 7
+    6 9 1
+Add the values of  between the indices  and  inclusive:
+
+index->	 1 2 3  4  5 6 7 8 9 10
+	[0,0,0, 0, 0,0,0,0,0, 0]
+	[3,3,3, 3, 3,0,0,0,0, 0]
+	[3,3,3,10,10,7,7,7,0, 0]
+	[3,3,3,10,10,8,8,8,1, 0]
+The largest value is  after all operations are performed.
 
 Function Description
 
-Complete the stringConstruction function in the editor below. It should return the minimum cost of copying a string.
+Complete the function arrayManipulation in the editor below.
 
-stringConstruction has the following parameter(s):
+arrayManipulation has the following parameters:
 
-s: a string
+int n - the number of elements in the array
+int queries[q][3] - a two dimensional array of queries where each queries[i] contains three integers, a, b, and k.
+Returns
+
+int - the maximum value in the resultant array
 Input Format
 
-The first line contains a single integer , the number of strings.
-Each of the next  lines contains a single string, .
+The first line contains two space-separated integers  and , the size of the array and the number of operations.
+Each of the next  lines contains three space-separated integers ,  and , the left index, right index and summand.
 
 Constraints
 
-Subtasks
-
- for  of the maximum score.
-Output Format
-
-For each string  print the minimum cost of constructing a new string  on a new line.
-
 Sample Input
 
-2
-abcd
-abab
+5 3
+1 2 100
+2 5 100
+3 4 100
 Sample Output
 
-4
-2
+200
 Explanation
 
-Query 0: We start with  and .
+After the first update the list is 100 100 0 0 0.
+After the second update list is 100 200 100 100 100.
+After the third update list is 100 200 200 200 100.
 
-Append character '' to  at a cost of  dollar, .
-Append character '' to  at a cost of  dollar, .
-Append character '' to  at a cost of  dollar, .
-Append character '' to  at a cost of  dollar, .
-Because the total cost of all operations is  dollars, we print  on a new line.
-
-Query 1: We start with  and .
-
-Append character '' to  at a cost of  dollar, .
-Append character '' to  at a cost of  dollar, .
-Append substring  to  at no cost, .
-Because the total cost of all operations is  dollars, we print  on a new line.
-
-Note
-
-A substring of a string  is another string  that occurs "in"  (Wikipedia). For example, the substrings of the string "" are "", "" ,"", "", "", and "".
+The maximum value is .
