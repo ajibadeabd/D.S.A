@@ -98,36 +98,28 @@ class LinkedList {
         let temp = this.head
         this.head = this.tail
         this.tail = temp
-        // temp.next
         let prev = null
         let next= temp.next
-        // temp.next=null
-        for(let i=0;i<this.length-1;i++){
-        temp = temp.next
-        console.log(temp)
-        // this.head.next=temp
-        // next= temp.next  
-
-
-            // temp.next=pre
-            // pre.next =temp.next 
-
+        for(let i=0;i<this.length;i++){
+        next = temp.next
+        temp.next=prev // this is where the pointer is been reset 
+        prev=temp
+        temp=next
         }
-        // console.log(temp)
-        
+        return this
     }
 
 }
 const list  = new LinkedList(1);
 list.push(2)
 list.push(3)
-list.push(4)
+//list.push(4)
 // list.unshift(11)
 list.get(0) 
 
 // list.set(2,333)
 // list.insert(1,333)
-console.log(list.remove(1),"rfrknfrkj")
+// console.log(list.remove(1),"rfrknfrkj")
 list.reverse()
 // list.pop()
 // list.pop()
