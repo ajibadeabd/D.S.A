@@ -81,8 +81,30 @@ class DoubleLinkedList {
                 temp=temp.prev
             }
         }
+        return temp
     }
+    set(index,value){
+        if(this.length==0 || index>=this.length || index<0 ) return undefined
 
+        let node = this.get(index)
+        if(!node) return false
+        node.value=value
+        return true
+    }
+    insert(index,value){
+        if(index == 0 ) return this.unshift(value)
+        if(index ===this.length) return this.push(value)
+        if(index>this.length || index<0 ) return false
+        let before = this.get(index-1)
+        if(!before) return undefined
+        const newNode = new Node(value)
+        const after  =  before.next
+        newNode.next =  after
+        newNode.prev = before
+
+        after.prev = newNode
+        before.next = newNode
+    }
 
 }
 const list  = new DoubleLinkedList(1);
@@ -94,20 +116,21 @@ list.pop()
 list.unshift(1)
 list.push(2)
 list.push(3)
-list.push(4)
-list.push(5)
+// list.push(4)
+// list.push(5)
 
 // list.unshift(2)
 // list.unshift(3)
 // list.unshift(4)
-list.shift()
-list.get(2)
+// list.shift()
+// list.get(2)
+// list.set(0,2)
 // list.push(4)
 // list.set(0,2)
 // list.shift()
 // list.unshift(11)
 // list.pop()
-// list.insert(3,33)
+list.insert(2,33)
 // console.log( list)
 
 // list.reverse()
@@ -115,3 +138,26 @@ console.log( list)
 // console.log(list)
  
  
+
+
+
+[{
+    "Field A": "ABC",
+    "Variable Field A": "66",
+    "Variable Field B": "-729"
+},
+{
+    "Field A": "DEF",
+    "Variable Field A": "70",
+    "Variable Field B": "334"
+},
+{
+    "Field A": "GHI",
+    "Variable Field A": "135",
+    "Variable Field B": "962"
+},
+{
+    "Field A": "JKL",
+    "Variable Field A": "19",
+    "Variable Field B": "241"
+}]
