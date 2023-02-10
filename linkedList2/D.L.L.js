@@ -29,9 +29,15 @@ class DoubleLinkedList {
     }
     pop(){
           if(this.length==0) return undefined
+          if(this.length==1) {
+            this.length--
+            this.head = null
+            this.tail = null
+            return 
+          }
         let temp = this.tail
-        this.tail.next=null
         this.tail=this.tail.prev
+        this.tail.next=null
         temp.prev=null
         this.length--
         if(!this.length) {
@@ -104,8 +110,60 @@ class DoubleLinkedList {
 
         after.prev = newNode
         before.next = newNode
+        this.length++
     }
+    remove(index){
+        if(this.length==0 || index>=this.length || index<0 ) return undefined
+        if(index == 0) return this.shift(index)
+        if(index == this.length-1) return this.pop(index)
+        let prevItem = this.get(index)
+                 let  before = prevItem.prev
+                 let  next = prevItem.next
+                 before.next = next
+                 next.prev = before
+        this.length--
+        prevItem.next  = null
+        prevItem.prev  = null
+        return prevItem
 
+    }
+    reverse(){
+        // let temp = this.head
+        // this.head = this.tail
+        // this.tail = temp 
+        // let prev = null
+        // let next= temp.next 
+        // for(let i=0;i<this.length;i++){
+        //     next = temp.next
+        //     prev = temp.prev
+        //     temp.next=prev // this is where the pointer is been reset 
+        //     temp.next=prev // this is where the pointer is been reset 
+        //     prev=temp
+        //     temp=next
+        //     }
+        //     return this
+
+var temp = null;
+var current = this.head;
+  
+        /*
+         * swap next and prev for all nodes of doubly linked list
+         */
+        while (current != null) {
+            temp = current.prev;
+            current.prev = current.next;
+            current.next = temp;
+            current = current.prev;
+        }
+  
+        /*
+         * Before changing head, check for the cases like empty list and list with only
+         * one node
+         */
+        if (temp != null) {
+            this.head = temp.prev;
+        }
+    }
 }
 const list  = new DoubleLinkedList(1);
 list.push(2)
@@ -113,9 +171,9 @@ list.push(3)
 list.pop()
 list.pop()
 list.pop()
-list.unshift(1)
-list.push(2)
-list.push(3)
+// list.unshift(1)
+// list.push(2)
+// list.push(3)
 // list.push(4)
 // list.push(5)
 
@@ -130,34 +188,14 @@ list.push(3)
 // list.shift()
 // list.unshift(11)
 // list.pop()
-list.insert(2,33)
-// console.log( list)
-
+list.insert(0,33)
+list.insert(1,3)
+list.insert(2,44)
+// list.remove(0)
 // list.reverse()
 console.log( list)
+
+// list.reverse()
+// console.log( list)
 // console.log(list)
- 
- 
-
-
-
-[{
-    "Field A": "ABC",
-    "Variable Field A": "66",
-    "Variable Field B": "-729"
-},
-{
-    "Field A": "DEF",
-    "Variable Field A": "70",
-    "Variable Field B": "334"
-},
-{
-    "Field A": "GHI",
-    "Variable Field A": "135",
-    "Variable Field B": "962"
-},
-{
-    "Field A": "JKL",
-    "Variable Field A": "19",
-    "Variable Field B": "241"
-}]
+  

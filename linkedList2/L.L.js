@@ -138,7 +138,7 @@ list.reverse()
 // // list.set(1,10)
 // // list.pop()
 // list.remove(1)
-// // // list.insert(3,33)
+list.insert(3,33)
 console.log( list)
 
 // // list.reverse() 
