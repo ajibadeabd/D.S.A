@@ -33,5 +33,5 @@ function countApplesAndOranges(s, t, a, b, apples, oranges) {
   }
  // console.log(countApplesAndOranges2(2,3 ,1 ,5 ,[ 2], [ -2 ]))
   
- //  console.log(countApplesAndOranges2(7 ,10 ,4 ,12 ,[ 2,3,-4 ], [ 3,-2,-4 ]))
+ //  console.log(countApplesAndOranges2(7 ,10 ,4 ,12 ,[ 2,3,-4 ], ,-2,-4 ]))
  //  console.log(countApplesAndOranges2(7 ,11 ,5 ,15 ,[ -2, 2, 1 ], [ 5, -6 ]))
