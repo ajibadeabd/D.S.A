@@ -10,11 +10,13 @@ var longestPalindrome = function(s) {
     let maxOdd = 0
     let maxEven = 0
     for(c in set ){
-    if(set[c]%2!=0){
-         maxOdd == 0 ? maxOdd += set[c]: maxOdd += (set[c]-1)
-    }else{
-        maxEven+=set[c]
-     }
+        set[c] % 2 == 0 ? maxEven+=set[c] :(maxOdd == 0 ? maxOdd += set[c]: maxOdd += (set[c]-1))
+
+    // if(set[c]%2!=0){
+    //      maxOdd == 0 ? maxOdd += set[c]: maxOdd += (set[c]-1)
+    // }else{
+    //     maxEven+=set[c]
+    //  }
     }
     return maxOdd+maxEven
     
