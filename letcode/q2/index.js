@@ -35,7 +35,10 @@ var longestPalindrome = function(words) {
 
     console.log(longestPalindrome(["lc","cl","gg"]))
 
-    let s = "1800"
-    let rev = String(+(s.split("")).reverse().join("")).split("").reverse().join("")
+    let s = 181
+    // let rev = String(+(s.split("")).reverse().join("")).split("").reverse().join("")
+// let rev = s==0?true: s%10==0?false:true
+let rev = s==0 ||  !!(s%10)
+    // console.log(rev===s)
 
-    console.log(rev===s)
+    console.log(rev)

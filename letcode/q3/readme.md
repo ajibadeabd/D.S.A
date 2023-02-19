@@ -1,4 +1,4 @@
-https://leetcode.com/problems/a-number-after-a-double-reversal/discussion/
+https://leetcode.com/problems/a-number-after-a-double-reversal/
 
 2119. A Number After a Double Reversal
 Easy
